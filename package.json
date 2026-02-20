@@ -1,0 +1,32 @@
+{
+  "name": "ue-presence-extension",
+  "version": "0.0.1",
+  "private": true,
+  "description": "UE Active Authors (Presence) panel",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "@adobe/react-spectrum": "^3.4.0",
+    "@adobe/uix-guest": "^0.10.3",
+    "@react-spectrum/list": "^3.0.0-rc.0",
+    "@spectrum-icons/workflow": "^3.2.0",
+    "chalk": "^4",
+    "core-js": "^3.6.4",
+    "js-yaml": "^4.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-error-boundary": "^1.2.5",
+    "react-router-dom": "^6.3.0",
+    "regenerator-runtime": "^0.13.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-react-jsx": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "eslint": "^8"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests ./test",
+    "lint": "eslint --ignore-pattern web-src --no-error-on-unmatched-pattern test src actions"
+  }
+}

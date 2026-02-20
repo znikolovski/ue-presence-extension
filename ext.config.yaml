@@ -1,0 +1,57 @@
+operations:
+  view:
+    - type: web
+      impl: index.html
+actions: actions
+web: web-src
+runtimeManifest:
+  packages:
+    agentic-how-to-presence:
+      license: Apache-2.0
+      actions:
+        register-presence:
+          function: actions/register-presence/index.js
+          web: 'yes'
+          runtime: nodejs:18
+          inputs:
+            SUPABASE_URL: $SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY: $SUPABASE_SERVICE_ROLE_KEY
+        heartbeat:
+          function: actions/heartbeat/index.js
+          web: 'yes'
+          runtime: nodejs:18
+          inputs:
+            SUPABASE_URL: $SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY: $SUPABASE_SERVICE_ROLE_KEY
+        get-presence:
+          function: actions/get-presence/index.js
+          web: 'yes'
+          runtime: nodejs:18
+          inputs:
+            SUPABASE_URL: $SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY: $SUPABASE_SERVICE_ROLE_KEY
+        leave-presence:
+          function: actions/leave-presence/index.js
+          web: 'yes'
+          runtime: nodejs:18
+          inputs:
+            SUPABASE_URL: $SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY: $SUPABASE_SERVICE_ROLE_KEY
+        save-nickname:
+          function: actions/save-nickname/index.js
+          web: 'yes'
+          runtime: nodejs:18
+          inputs:
+            SUPABASE_URL: $SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY: $SUPABASE_SERVICE_ROLE_KEY
+        get-nickname:
+          function: actions/get-nickname/index.js
+          web: 'yes'
+          runtime: nodejs:18
+          inputs:
+            SUPABASE_URL: $SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY: $SUPABASE_SERVICE_ROLE_KEY
+hooks:
+  pre-app-run: node node_modules/@adobe/uix-guest/scripts/generate-metadata.js
+  pre-app-build: node node_modules/@adobe/uix-guest/scripts/generate-metadata.js
+  post-app-deploy: ./hooks/post-deploy.js

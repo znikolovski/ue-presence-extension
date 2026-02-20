@@ -1,0 +1,354 @@
+/*
+* <license header>
+*/
+
+html,
+body {
+  margin: 0;
+}
+
+/** Custom Sidebar Styling **/
+.SideNav {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 0px;
+  padding: 0;
+  outline: none;
+  height: 100%;
+}
+
+.SideNav-item {
+  list-style-type: none;
+  margin: var(--spectrum-global-dimension-size-50) 0;
+}
+
+.SideNav-itemLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: start;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--spectrum-alias-single-line-height, var(--spectrum-global-dimension-size-400));
+  padding: var(--spectrum-global-dimension-size-65) var(--spectrum-global-dimension-size-150);
+  border-radius: var(--spectrum-alias-border-radius-regular, var(--spectrum-global-dimension-size-50));
+  font-size: var(--spectrum-alias-font-size-default, var(--spectrum-global-dimension-font-size-100));
+  font-weight: var(--spectrum-global-font-weight-regular, 400);
+  font-style: normal;
+  text-decoration: none;
+  word-break: break-word;
+  cursor: pointer;
+  background-color: var(--spectrum-alias-background-color-transparent,transparent);
+  color: var(--spectrum-alias-text-color,var(--spectrum-global-color-gray-800));
+}
+
+.SideNav-itemLink.is-selected {
+  color: var(--spectrum-alias-text-color-hover,var(--spectrum-global-color-gray-900));
+  background-color: var(--spectrum-alias-highlight-hover);
+}
+
+/* Presence Panel – Spectrum blue accent */
+.PresencePanel {
+  --presence-accent: var(--spectrum-global-color-static-blue-600, #1473e6);
+  --presence-accent-subtle: rgba(20, 115, 230, 0.12);
+  --presence-surface: #f5f5f5;
+  --presence-border: #e0e0e0;
+}
+
+.PresencePanel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.PresencePanel-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--presence-accent);
+  border-radius: 1px;
+}
+
+.PresencePanel-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+}
+
+.PresencePanel-headerBadges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.PresencePanel-liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(76, 175, 80, 0.15);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.PresencePanel-liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4caf50;
+  animation: PresencePanel-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes PresencePanel-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+.PresencePanel-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 12px 8px;
+  min-height: 60px;
+  border: 1px solid rgba(20, 115, 230, 0.2);
+  box-shadow: 0 0 0 1px rgba(20, 115, 230, 0.06);
+}
+
+.PresencePanel-empty {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  padding: 16px 12px 8px;
+}
+
+.PresencePanel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--presence-surface);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.PresencePanel-item:last-child {
+  margin-bottom: 0;
+}
+
+.PresencePanel-item {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.PresencePanel-item--highlighted {
+  background: var(--presence-accent-subtle);
+  box-shadow: 0 0 0 1px rgba(20, 115, 230, 0.2);
+}
+
+.PresencePanel-itemDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.PresencePanel-itemName {
+  flex: 1;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.PresencePanel-itemMeta {
+  font-size: 12px;
+  color: #666;
+}
+
+.PresencePanel-gotoBtn {
+  background: var(--presence-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: opacity 0.2s;
+}
+
+.PresencePanel-gotoBtn:hover {
+  opacity: 0.9;
+}
+
+.PresencePanel-youBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--presence-surface);
+  border-radius: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* View mode tabs (List | Map) */
+.PresencePanel-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.PresencePanel-tab {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--presence-surface);
+  color: #666;
+  transition: background 0.2s, color 0.2s;
+}
+
+.PresencePanel-tab:hover {
+  background: #e8e8e8;
+  color: #333;
+}
+
+.PresencePanel-tab.is-selected {
+  background: var(--presence-accent);
+  color: #fff;
+}
+
+/* Block map – Content tree style */
+.PresenceBlockMap-empty {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  padding: 16px 12px 8px;
+}
+
+.PresenceBlockMap.ContentTree-style .PresenceBlockMap-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.PresenceBlockMap-node {
+  display: flex;
+  flex-direction: column;
+}
+
+.PresenceBlockMap-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.PresenceBlockMap-row {
+  position: relative;
+  font-size: 13px;
+  transition: background-color 0.15s ease;
+}
+
+.PresenceBlockMap-rowInner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 8px;
+  cursor: pointer;
+  min-height: 32px;
+  color: #323232;
+}
+
+.PresenceBlockMap-row:hover .PresenceBlockMap-rowInner {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.PresenceBlockMap-row--selected .PresenceBlockMap-rowInner {
+  background: #e0f2ff;
+  color: #323232;
+}
+
+.PresenceBlockMap-row--selected {
+  border-left: 3px solid var(--presence-accent);
+}
+
+.PresenceBlockMap-row--highlighted:not(.PresenceBlockMap-row--selected) .PresenceBlockMap-rowInner {
+  background: var(--presence-accent-subtle);
+}
+
+.PresenceBlockMap-chevron {
+  display: flex;
+  align-items: center;
+  color: #6b6b6b;
+  flex-shrink: 0;
+}
+
+.PresenceBlockMap-icon {
+  display: flex;
+  align-items: center;
+  color: #6b6b6b;
+  flex-shrink: 0;
+}
+
+.PresenceBlockMap-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.PresenceBlockMap-users {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.PresenceBlockMap-userDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.PresenceBlockMap-userNames {
+  font-size: 11px;
+  color: #6b6b6b;
+  max-width: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.PresenceBlockMap-moreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: -2px 0;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #6b6b6b;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.PresenceBlockMap-moreBtn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  opacity: 1;
+}

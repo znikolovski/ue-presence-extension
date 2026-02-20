@@ -2,7 +2,7 @@
  * <license header>
  */
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Text } from "@adobe/react-spectrum";
 import { register } from "@adobe/uix-guest";
 import { extensionId } from "./Constants";
